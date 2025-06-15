@@ -1,6 +1,6 @@
+import { Outlet } from 'react-router-dom'
 import AlertContainer from './components/layout/AlertContainer'
 import HeaderContainer from './components/layout/HeaderContainer'
-import MainContainer from './components/layout/MainContainer'
 import MenuContainer from './components/layout/MenuContainer'
 import ModalContainer from './components/layout/ModalContainer'
 import SearchContainer from './components/layout/SearchContainer'
@@ -9,9 +9,7 @@ function App() {
   return (
     <div className="App">
       <HeaderContainer />
-      <MainContainer page=''>
-        MainContainer
-      </MainContainer>
+      <Outlet />
       <SearchContainer />
       <ModalContainer />
       <MenuContainer />
