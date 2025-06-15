@@ -1,5 +1,6 @@
 import HeaderContainer from './components/layout/HeaderContainer'
 import MainContainer from './components/layout/MainContainer'
+import MenuContainer from './components/layout/MenuContainer'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <MainContainer page=''>
         MainContainer
       </MainContainer>
+      <MenuContainer />
       <footer id="footer-container">
         <div>
           <span>livingthe<em>OK</em>life</span>
