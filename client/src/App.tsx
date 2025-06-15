@@ -1,10 +1,13 @@
 import HeaderContainer from './components/layout/HeaderContainer'
+import MainContainer from './components/layout/MainContainer'
 
 function App() {
   return (
     <div className="App">
       <HeaderContainer />
-      <main id="main-container">MainContainer</main>
+      <MainContainer page=''>
+        MainContainer
+      </MainContainer>
       <footer id="footer-container">
         <div>
           <span>livingthe<em>OK</em>life</span>
