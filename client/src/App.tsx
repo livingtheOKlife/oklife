@@ -2,6 +2,7 @@ import AlertContainer from './components/layout/AlertContainer'
 import HeaderContainer from './components/layout/HeaderContainer'
 import MainContainer from './components/layout/MainContainer'
 import MenuContainer from './components/layout/MenuContainer'
+import ModalContainer from './components/layout/ModalContainer'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         MainContainer
       </MainContainer>
       <MenuContainer />
+      <ModalContainer />
       <AlertContainer />
       <footer id="footer-container">
         <div>
