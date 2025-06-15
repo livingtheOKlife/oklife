@@ -1,0 +1,27 @@
+{
+  "name": "oklife",
+  "version": "1.0.0",
+  "description": "social media platform with health and fitness tracking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livingtheOKlife/oklife.git"
+  },
+  "keywords": [
+    "social",
+    "media",
+    "health",
+    "fitness",
+    "diet",
+    "tracker"
+  ],
+  "author": "livingtheOKlife",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/livingtheOKlife/oklife/issues"
+  },
+  "homepage": "https://github.com/livingtheOKlife/oklife#readme"
+}
