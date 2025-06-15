@@ -1,12 +1,15 @@
+import HeaderContainer from './components/layout/HeaderContainer'
+
 function App() {
   return (
     <div className="App">
-      <header id="header-container">HeaderContainer - OKlife</header>
+      <HeaderContainer />
       <main id="main-container">MainContainer</main>
       <footer id="footer-container">
-        <span>
-          <h1>livingthe<em>OK</em>life</h1> &copy; 2025
-        </span>
+        <div>
+          <span>livingthe<em>OK</em>life</span>
+          <span>&copy; 2025</span>
+        </div>
         <span>
           All rights reserved.
         </span>
