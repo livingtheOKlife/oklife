@@ -3,6 +3,7 @@ import HeaderContainer from './components/layout/HeaderContainer'
 import MainContainer from './components/layout/MainContainer'
 import MenuContainer from './components/layout/MenuContainer'
 import ModalContainer from './components/layout/ModalContainer'
+import SearchContainer from './components/layout/SearchContainer'
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
       <MainContainer page=''>
         MainContainer
       </MainContainer>
-      <MenuContainer />
+      <SearchContainer />
       <ModalContainer />
+      <MenuContainer />
       <AlertContainer />
       <footer id="footer-container">
         <div>
