@@ -1,3 +1,5 @@
+import { useAppContext } from '../../hooks/useAppContext'
+
 /**------------------------------ modal container
  *
  * @name ModalContainer
@@ -8,9 +10,10 @@
  * --------------- */
 
 const ModalContainer = () => {
-  return (
-    <aside id="modal-container">ModalContainer</aside>
-  )
+  const {
+    state,
+  } = useAppContext()
+  return state.modal === true && <aside id="modal-container">ModalContainer</aside>
 }
 
 export default ModalContainer

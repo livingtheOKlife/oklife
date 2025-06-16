@@ -1,3 +1,5 @@
+import { useAppContext } from '../../hooks/useAppContext'
+
 /**------------------------------ menu container
  *
  * @name MenuContainer
@@ -8,7 +10,10 @@
  * --------------- */
 
 const MenuContainer = () => {
-  return (
+  const {
+    state,
+  } = useAppContext()
+  return state.menu === true &&
     <aside id="menu-container">
       <nav id="menu-nav">
         <ul>
@@ -16,7 +21,6 @@ const MenuContainer = () => {
         </ul>
       </nav>
     </aside>
-  )
 }
 
 export default MenuContainer
