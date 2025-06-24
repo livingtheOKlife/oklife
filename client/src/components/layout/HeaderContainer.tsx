@@ -1,4 +1,4 @@
-import { TbUser } from 'react-icons/tb'
+import MainNav from '../MainNav'
 
 /**------------------------------ header container
  *
@@ -12,15 +12,8 @@ import { TbUser } from 'react-icons/tb'
 
 const HeaderContainer = () => {
   return (
-    <header id='header-container'>
-      <nav id='main-nav'>
-        <h1><em>OK</em>life</h1>
-        <ul>
-          <li>
-            <TbUser />
-          </li>
-        </ul>
-      </nav>
+    <header id='header-container' style={{ padding: '0.75rem 0.75rem 0.5rem 0.75rem' }}>
+      <MainNav />
     </header>
   )
 }

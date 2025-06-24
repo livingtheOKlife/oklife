@@ -1,4 +1,5 @@
 import { useAppContext } from '../../hooks/useAppContext'
+import AbsoluteContainer from '../shared/utils/AbsoluteContainer'
 
 /**------------------------------ modal container
  *
@@ -13,7 +14,10 @@ const ModalContainer = () => {
   const {
     state,
   } = useAppContext()
-  return state.modal === true && <aside id="modal-container">ModalContainer</aside>
+  return state.modal === true && 
+    <AbsoluteContainer component='aside' id='modal-container' bottom='18px' padding='0.5rem 1rem 1.5rem 1rem'>
+      ModalContainer
+    </AbsoluteContainer>
 }
 
 export default ModalContainer

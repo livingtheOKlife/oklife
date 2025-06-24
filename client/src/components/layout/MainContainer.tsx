@@ -17,7 +17,11 @@ type Props = {
 
 const MainContainer = ({ page, children }: Props) => {
   return (
-    <main id='main-container' className={page}>
+    <main id='main-container' className={page} style={{
+      height: '100%',
+      width: '100%',
+      padding: '0.5rem 1rem 1.5rem 1rem',
+    }}>
       {children}
     </main>
   )

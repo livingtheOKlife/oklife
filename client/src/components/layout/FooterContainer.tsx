@@ -1,3 +1,6 @@
+import FlexBetween from '../shared/utils/FlexBetween'
+import FlexCenter from '../shared/utils/FlexCenter'
+
 /**------------------------------ footer container
  *
  * @name FooterContainer
@@ -10,15 +13,15 @@
 
 const FooterContainer = () => {
   return (
-    <footer id="footer-container">
-      <div>
-        <span>livingthe<em>OK</em>life</span>
+    <FlexBetween component='footer' id='footer-container' style={{ padding: '4px 8px' }}>
+      <FlexCenter component='div' gap='4px'>
+        <span id='brand'>livingthe<em>OK</em>life</span>
         <span>&copy; 2025</span>
-      </div>
+      </FlexCenter>
       <span>
         All rights reserved.
       </span>
-    </footer>
+    </FlexBetween>
   )
 }
 

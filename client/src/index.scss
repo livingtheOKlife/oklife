@@ -1,1 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import './styles/defaults';
+
+.App {
+
+  height: 100dvh;
+  max-height: 100dvh;
+  width: 100dvw;
+  max-width: 100dvw;
+
+  * {
+
+    font-family: 'Quicksand', sans-serif;
+
+  }
+  
+}

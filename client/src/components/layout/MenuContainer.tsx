@@ -1,4 +1,6 @@
 import { useAppContext } from '../../hooks/useAppContext'
+import MenuNav from '../MenuNav'
+import AbsoluteContainer from '../shared/utils/AbsoluteContainer'
 
 /**------------------------------ menu container
  *
@@ -14,13 +16,9 @@ const MenuContainer = () => {
     state,
   } = useAppContext()
   return state.menu === true &&
-    <aside id="menu-container">
-      <nav id="menu-nav">
-        <ul>
-          <li>MenuContainer - Menu Nav Item</li>
-        </ul>
-      </nav>
-    </aside>
+    <AbsoluteContainer component='aside' id='menu-container' bottom='18px' padding='0.5rem 1rem 1.5rem 1rem'>
+      <MenuNav />
+    </AbsoluteContainer>
 }
 
 export default MenuContainer

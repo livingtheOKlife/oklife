@@ -1,19 +1,12 @@
+import { Box } from '@mui/material'
 import { useAppContext } from '../../hooks/useAppContext'
-
-/**------------------------------ alert container
- * 
- * @name AlertContainer
- * @requires useAppContext
- * @returns alert container component
- * @description contains the alert component
- *
- * --------------- */
 
 const AlertContainer = () => {
   const {
     state,
   } = useAppContext()
-  return state.alert === true && <aside id="alert-container">AlertContainer</aside>
+  return state.alert === true &&
+    <Box component='aside' id='alert-container' position='absolute' top='4.5rem' alignSelf='center' maxWidth='80%'>AlertContainer</Box>
 }
 
 export default AlertContainer

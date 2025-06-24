@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 * {
   box-sizing: border-box;
   padding: 0;
@@ -22,4 +24,18 @@ button:disabled, a:disabled {
 input::-ms-reveal,
 input::-ms-clear {
   display: none;
+}
+
+svg {
+  display: flex;
+}
+
+.App {
+  height: 100dvh;
+  max-height: 100dvh;
+  width: 100dvw;
+  max-width: 100dvw;
+}
+.App * {
+  font-family: "Quicksand", sans-serif;
 }/*# sourceMappingURL=index.css.map */

@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom'
+import FlexBetween from './components/shared/utils/FlexBetween'
 import HeaderContainer from './components/layout/HeaderContainer'
 import SearchContainer from './components/layout/SearchContainer'
 import ModalContainer from './components/layout/ModalContainer'
@@ -8,7 +9,7 @@ import AlertContainer from './components/layout/AlertContainer'
 
 function App() {
   return (
-    <div className="App">
+    <FlexBetween component='div' className='App' flexDirection='column' position='relative'>
       <HeaderContainer />
       <Outlet />
       <SearchContainer />
@@ -16,7 +17,7 @@ function App() {
       <MenuContainer />
       <AlertContainer />
       <FooterContainer />
-    </div>
+    </FlexBetween>
   )
 }
 
