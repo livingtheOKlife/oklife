@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material'
 
 type Props = {
-  type: boolean
+  type: boolean | string
 }
 
 const AlertTimer = ({type}:Props) => {
@@ -18,7 +18,7 @@ const AlertTimer = ({type}:Props) => {
       <div className="bar" style={{ 
         height: '100%',
         width: '100%',
-        backgroundColor: type === true ? palette.wheel.green.main : palette.wheel.red.main
+        backgroundColor: type === 'success' ? palette.wheel.green.main : palette.wheel.red.main
        }}></div>
     </div>
   )

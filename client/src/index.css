@@ -30,9 +30,43 @@ svg {
   display: flex;
 }
 
+@keyframes toast-pop {
+  0% {
+    transform: translateY(-88px);
+  }
+  7% {
+    transform: translateY(8px);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes alert-timer {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
 .App {
   height: 100dvh;
   max-height: 100dvh;
   width: 100dvw;
   max-width: 100dvw;
+}
+
+#alert-container {
+  animation: toast-pop 3.64s forwards ease-out;
+}
+
+.alert-timer .bar {
+  animation: alert-timer 3s forwards linear;
+  animation-delay: 0.32s;
 }/*# sourceMappingURL=index.css.map */

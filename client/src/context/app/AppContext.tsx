@@ -1,10 +1,15 @@
 import React, { createContext } from 'react'
 
+type AlertType = {
+  message: string,
+  type: string
+}
+
 type AppType = {
   search: boolean
   modal: boolean
   menu: boolean
-  alert: boolean
+  alert: boolean | AlertType
 }
 
 type ActionType = {
@@ -19,7 +24,7 @@ type ContextType = {
   setModalInactive: () => void
   setMenuActive: () => void
   setMenuInactive: () => void
-  setAlertActive: () => void
+  setAlertActive: (message:string, type: string) => void
   setAlertInactive: () => void
   dispatch: React.ActionDispatch<[action: ActionType]>
 }

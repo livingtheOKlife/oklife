@@ -55,10 +55,15 @@ export const AppProvider = ({ children }:Props) => {
       type: 'SET_MENU_INACTIVE'
     })
   }
-  const setAlertActive = () => {
+  const setAlertActive = (message:string, type:string) => {
     dispatch({
-      type: 'SET_ALERT_ACTIVE'
+      type: 'SET_ALERT_ACTIVE',
+      payload: {
+        message,
+        type
+      }
     })
+    setTimeout(() => dispatch({type: 'SET_ALERT_INACTIVE'}), 3640)
   }
   const setAlertInactive = () => {
     dispatch({

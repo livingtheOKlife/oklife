@@ -1,0 +1,49 @@
+@keyframes toast-pop {
+
+    0% {
+
+      transform: translateY(-88px);
+
+    }
+
+    7% {
+
+      transform: translateY(8px);
+
+    }
+
+    10% {
+
+      transform: translateY(0);
+
+    }
+
+    90% {
+
+      opacity: 1;
+
+    }
+
+    100% {
+
+      opacity: 0;
+
+    }
+
+  }
+
+@keyframes alert-timer {
+  
+  0% {
+
+    width: 100%
+
+  }
+  
+  100% {
+
+    width: 0
+
+  }
+
+}

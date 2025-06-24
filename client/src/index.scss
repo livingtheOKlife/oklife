@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import './styles/defaults';
+@import './styles/animations';
 
 .App {
 
@@ -9,4 +10,21 @@
   width: 100dvw;
   max-width: 100dvw;
   
+}
+
+#alert-container {
+
+  animation: toast-pop 3.64s forwards ease-out;
+
+}
+
+.alert-timer {
+
+  .bar {
+
+    animation: alert-timer 3s forwards linear;
+    animation-delay: 0.32s;
+
+  }
+
 }

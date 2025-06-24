@@ -2,11 +2,17 @@ type StateType = {
   search: boolean,
   modal: boolean,
   menu: boolean,
-  alert: boolean,
+  alert: boolean
+}
+
+type PayloadType = {
+  message: string,
+  type: string
 }
 
 type ActionType = {
   type: string,
+  payload: PayloadType
 }
 
 /**------------------------------ app reducer
@@ -51,7 +57,7 @@ const AppReducer = (state: StateType, action: ActionType) => {
     case 'SET_ALERT_ACTIVE':
       return {
         ...state,
-        alert: true,
+        alert: action.payload,
       }
     case 'SET_ALERT_INACTIVE':
       return {
