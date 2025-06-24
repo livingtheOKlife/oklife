@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom'
-import AlertContainer from './components/layout/AlertContainer'
 import HeaderContainer from './components/layout/HeaderContainer'
-import MenuContainer from './components/layout/MenuContainer'
-import ModalContainer from './components/layout/ModalContainer'
 import SearchContainer from './components/layout/SearchContainer'
+import ModalContainer from './components/layout/ModalContainer'
+import MenuContainer from './components/layout/MenuContainer'
+import FooterContainer from './components/layout/FooterContainer'
+import AlertContainer from './components/layout/AlertContainer'
 
 function App() {
   return (
@@ -14,15 +15,7 @@ function App() {
       <ModalContainer />
       <MenuContainer />
       <AlertContainer />
-      <footer id="footer-container">
-        <div>
-          <span>livingthe<em>OK</em>life</span>
-          <span>&copy; 2025</span>
-        </div>
-        <span>
-          All rights reserved.
-        </span>
-      </footer>
+      <FooterContainer />
     </div>
   )
 }
