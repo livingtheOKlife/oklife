@@ -57,13 +57,13 @@ const MainNav = () => {
         <Logo />
       </Link>
       <FlexCenter component='ul' gap='0.5rem' fontSize='1.6rem'>
-        <MainNavItem onClick={() => searchButton}>
+        <MainNavItem onClick={searchButton}>
           <TbSearch />
         </MainNavItem>
-        <MainNavItem onClick={() => chatButton}>
+        <MainNavItem onClick={chatButton}>
           <TbMessage />
         </MainNavItem>
-        <MainNavItem onClick={() => menuButton}>
+        <MainNavItem onClick={menuButton}>
           <TbUser />
         </MainNavItem>
       </FlexCenter>
