@@ -11,7 +11,9 @@ const AlertContainer = () => {
   } = useAppContext()
   const { palette } = useTheme()
   return state.alert !== false &&
-    <Box component='aside' id='alert-container' position='absolute' top='4.5rem' alignSelf='center' maxWidth='80%'>
+    <Box component='aside' id='alert-container' position='absolute' top='4.5rem' alignSelf='center' maxWidth='80%' style={{
+      animation: 'toast-pop 3.64s forwards ease-in-out'
+    }}>
       <Card component='div' alignItems='center' padding='0.75rem 0.75rem 1.25rem 0.75rem' style={{
         backgroundColor: palette.background.default
       }}>

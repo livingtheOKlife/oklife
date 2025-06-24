@@ -60,13 +60,4 @@ svg {
   max-height: 100dvh;
   width: 100dvw;
   max-width: 100dvw;
-}
-
-#alert-container {
-  animation: toast-pop 3.64s forwards ease-out;
-}
-
-.alert-timer .bar {
-  animation: alert-timer 3s forwards linear;
-  animation-delay: 0.32s;
 }/*# sourceMappingURL=index.css.map */

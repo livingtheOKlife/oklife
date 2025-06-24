@@ -18,7 +18,9 @@ const AlertTimer = ({type}:Props) => {
       <div className="bar" style={{ 
         height: '100%',
         width: '100%',
-        backgroundColor: type === 'success' ? palette.wheel.green.main : palette.wheel.red.main
+        backgroundColor: type === 'success' ? palette.wheel.green.main : palette.wheel.red.main,
+        animation: 'alert-timer 3s forwards linear',
+        animationDelay: '0.32s'
        }}></div>
     </div>
   )
