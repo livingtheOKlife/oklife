@@ -1,13 +1,13 @@
+type PayloadType = {
+  message: string,
+  type: string
+} | null
+
 type StateType = {
   search: boolean,
   modal: boolean,
   menu: boolean,
-  alert: boolean
-}
-
-type PayloadType = {
-  message: string,
-  type: string
+  alert: boolean | PayloadType
 }
 
 type ActionType = {

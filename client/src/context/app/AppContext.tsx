@@ -9,11 +9,17 @@ type AppType = {
   search: boolean
   modal: boolean
   menu: boolean
-  alert: boolean | AlertType
+  alert: boolean | AlertType | null
 }
+
+type PayloadType = {
+  message: string,
+  type: string
+} | null
 
 type ActionType = {
   type: string
+  payload: PayloadType
 }
 
 type ContextType = {

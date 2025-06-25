@@ -27,32 +27,38 @@ export const AppProvider = ({ children }:Props) => {
   const [state, dispatch] = useReducer(AppReducer, initialState)
   const setSearchActive = () => {
     dispatch({
-      type: 'SET_SEARCH_ACTIVE'
+      type: 'SET_SEARCH_ACTIVE',
+      payload: null
     })
   }
   const setSearchInactive = () => {
     dispatch({
-      type: 'SET_SEARCH_INACTIVE'
+      type: 'SET_SEARCH_INACTIVE',
+      payload: null
     })
   }
   const setModalActive = () => {
     dispatch({
-      type: 'SET_MODAL_ACTIVE'
+      type: 'SET_MODAL_ACTIVE',
+      payload: null
     })
   }
   const setModalInactive = () => {
     dispatch({
-      type: 'SET_MODAL_INACTIVE'
+      type: 'SET_MODAL_INACTIVE',
+      payload: null
     })
   }
   const setMenuActive = () => {
     dispatch({
-      type: 'SET_MENU_ACTIVE'
+      type: 'SET_MENU_ACTIVE',
+      payload: null
     })
   }
   const setMenuInactive = () => {
     dispatch({
-      type: 'SET_MENU_INACTIVE'
+      type: 'SET_MENU_INACTIVE',
+      payload: null
     })
   }
   const setAlertActive = (message:string, type:string) => {
@@ -63,11 +69,15 @@ export const AppProvider = ({ children }:Props) => {
         type
       }
     })
-    setTimeout(() => dispatch({type: 'SET_ALERT_INACTIVE'}), 3640)
+    setTimeout(() => dispatch({
+      type: 'SET_ALERT_INACTIVE',
+      payload: null
+    }), 3640)
   }
   const setAlertInactive = () => {
     dispatch({
-      type: 'SET_ALERT_INACTIVE'
+      type: 'SET_ALERT_INACTIVE',
+      payload: null
     })
   }
   return (
