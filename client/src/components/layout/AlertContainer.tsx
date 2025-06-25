@@ -23,7 +23,7 @@ import CloseAlertButton from './alert/CloseAlertButton'
 
 const AlertContainer = () => {
   const {
-    state,
+    state
   } = useAppContext()
   const { palette } = useTheme()
   return state.alert !== false &&
