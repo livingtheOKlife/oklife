@@ -4,7 +4,8 @@ import AbsoluteContainer from '../shared/utils/AbsoluteContainer'
 /**------------------------------ modal container
  *
  * @name ModalContainer
- * @requires ModalContext useContext
+ * @requires useAppContext custom hook
+ * @requires AbsoluteContainer utility component
  * @returns modal container component
  * @description contains the modal component
  *

@@ -4,9 +4,10 @@ import AbsoluteContainer from '../shared/utils/AbsoluteContainer'
 /**------------------------------ search container
  *
  * @name SearchContainer
- * @requires SearchContext useContext
- * @description contains the search bar component
+ * @requires useAppContext custom hook
+ * @requires AbsoluteContainer utility component
  * @returns search container component
+ * @description contains the search bar component
  *
  * --------------- */
 

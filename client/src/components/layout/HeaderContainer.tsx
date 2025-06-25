@@ -4,7 +4,7 @@ import MainNav from '../MainNav'
  *
  * @name HeaderContainer
  * @function
- * @requires react-router-dom
+ * @requires MainNav component
  * @returns header container component
  * @description contains the main navigation bar
  *

@@ -1,6 +1,16 @@
 import { useTheme } from '@mui/material'
 import FlexCenter from './shared/utils/FlexCenter'
 
+/**------------------------------ copyright
+ * 
+ * @name Copyright
+ * @function component
+ * @requires useTheme @mui/material
+ * @requires FlexCenter utility component
+ * @returns the copyright branding for the footer container
+ * 
+ * --------------- */
+
 function Copyright () {
   const { palette } = useTheme()
   return (

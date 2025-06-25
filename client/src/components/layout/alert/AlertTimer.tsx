@@ -4,6 +4,16 @@ type Props = {
   type: boolean | string
 }
 
+/**------------------------------ alert timer bar
+ * 
+ * @name AlertTimer
+ * @function component
+ * @requires useTheme @mui/material
+ * @requires alert-timer animation
+ * @returns a timer bar for the alert container
+ * 
+ * --------------- */
+
 const AlertTimer = ({type}:Props) => {
   const { palette } = useTheme()
   return (

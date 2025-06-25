@@ -1,11 +1,13 @@
 import { useAppContext } from '../../hooks/useAppContext'
-import MenuNav from '../MenuNav'
 import AbsoluteContainer from '../shared/utils/AbsoluteContainer'
+import MenuNav from '../MenuNav'
 
 /**------------------------------ menu container
  *
  * @name MenuContainer
- * @requires MenuContext useContext
+ * @requires useAppContext custom hook
+ * @requires AbsoluteContainer utility component
+ * @requires MainNav component
  * @returns menu container component
  * @description contains the menu navigation
  *

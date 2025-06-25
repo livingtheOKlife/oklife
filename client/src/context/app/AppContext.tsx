@@ -33,6 +33,7 @@ type ContextType = {
  *
  * @name AppContext
  * @function
+ * @requires createContext react
  *
  * --------------- */
 

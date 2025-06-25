@@ -1,9 +1,25 @@
+import { useAppContext } from '../../hooks/useAppContext'
 import { Box, useTheme } from '@mui/material'
 import { TbCircleCheck, TbExclamationCircleFilled } from 'react-icons/tb'
-import { useAppContext } from '../../hooks/useAppContext'
 import Card from '../shared/utils/Card'
 import AlertTimer from './alert/AlertTimer'
 import CloseAlertButton from './alert/CloseAlertButton'
+
+/**------------------------------ alert container
+ * 
+ * @name AlertContainer
+ * @function component
+ * @requires useAppContext custom hook
+ * @requires useTheme @mui/material
+ * @requires Box @mui/material
+ * @requires TbCircleCheck react-icons/tb
+ * @requires TbExclamationCircleFilled react-icons/tb
+ * @requires Card utility component
+ * @requires AlertTimer component
+ * @requires CloseAlertButton component
+ * @returns an alert container that displays errors and successes in the client
+ * 
+ * --------------- */
 
 const AlertContainer = () => {
   const {

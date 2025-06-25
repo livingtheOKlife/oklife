@@ -5,6 +5,15 @@ type Props = {
   children: React.ReactNode
 }
 
+/**------------------------------ main navigation items
+ * 
+ * @name MainNavItem
+ * @function component
+ * @requires useTheme @mui/material
+ * @returns a button for the main navigation bar in the header container
+ * 
+ * --------------- */
+
 const MainNavItem = ({onClick, children}: Props) => {
   const { palette } = useTheme()
   return (

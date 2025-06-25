@@ -1,9 +1,19 @@
-import { Box } from '@mui/material'
 import { styled } from '@mui/system'
+import { Box } from '@mui/material'
 
 type Type = {
   component: string
 }
+
+/**------------------------------ card utility component
+ * 
+ * @name Card
+ * @function component utility
+ * @requires styled @mui/system
+ * @requires Box @mui/material
+ * @description creates a styled utility component for cards
+ * 
+ * --------------- */
 
 const Card = styled(Box)<Type> ({
   display: 'flex',

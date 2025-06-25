@@ -1,5 +1,13 @@
 import { useTheme } from '@mui/material'
 
+/**------------------------------ logo
+ * 
+ * @name Logo
+ * @function component
+ * @requires useTheme @mui/material
+ * @returns the logo component for the header container
+ * 
+ * --------------- */
 
 const Logo = () => {
   const { palette } = useTheme()

@@ -5,6 +5,8 @@ import { AppContext } from '../context/app/AppContext'
  *
  * @name useAppContext
  * @function
+ * @requires useContext react
+ * @requires AppContext
  * @description custom hook for handling react context (useContext)
  *
  * --------------- */

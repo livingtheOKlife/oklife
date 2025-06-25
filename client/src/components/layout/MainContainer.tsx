@@ -7,9 +7,8 @@ type Props = {
  *
  * @name MainContainer
  * @function
- * @requires prop-types
  * @param page string
- * @param children node
+ * @param children ReactNode
  * @returns main container component
  * @description contains the content for every page
  *

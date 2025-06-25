@@ -11,8 +11,8 @@ type Props = {
  * @name AppProvider
  * @function
  * @requires useReducer
- * @requires AppReducer useReducer
  * @requires AppContext
+ * @requires AppReducer
  * @returns app provider component
  *
  * --------------- */

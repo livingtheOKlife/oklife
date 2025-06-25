@@ -6,7 +6,10 @@ import Copyright from '../Copyright'
  *
  * @name FooterContainer
  * @function
- * @requires react-router-dom
+ * @requires useTheme @mui/material
+ * @requires useMediaQuery @mui/material
+ * @requires FlexBetween utility component
+ * @requires Copyright component
  * @returns footer container component
  * @description contains the copyright bar
  *
