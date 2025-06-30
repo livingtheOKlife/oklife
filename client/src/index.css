@@ -60,4 +60,14 @@ svg {
   max-height: 100dvh;
   width: 100dvw;
   max-width: 100dvw;
+}
+
+button:hover {
+  scale: 1.02;
+  transition: all 0.16s ease-in-out;
+  line-height: 1;
+}
+button:hover * {
+  scale: 1.02;
+  transition: all 0.16s ease-in-out;
 }/*# sourceMappingURL=index.css.map */

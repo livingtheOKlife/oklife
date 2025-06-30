@@ -15,10 +15,12 @@ type Type = {
  * 
  * --------------- */
 
-const Card = styled(Box)<Type> ({
+const Card = styled(Box)<Type>(({ theme }) => ({
   display: 'flex',
   gap: '0.5rem',
+  borderRadius: '3px',
+  backgroundColor: theme.palette.card.light,
   boxShadow: 'rgba(0, 0, 0, 0.08) 0px 2px 4px, rgba(0, 0, 0, 0.08) 0px 2px 4px;'
-})
+}))
 
 export default Card

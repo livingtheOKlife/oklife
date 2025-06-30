@@ -11,3 +11,18 @@
   max-width: 100dvw;
   
 }
+
+button:hover {
+
+  scale: 1.02;
+  transition: all 0.16s ease-in-out;
+  line-height: 1;
+  
+  * {
+    
+    scale: 1.02;
+    transition: all 0.16s ease-in-out;
+
+  }
+
+}

@@ -1,4 +1,3 @@
-import { useMediaQuery, useTheme } from '@mui/material'
 import FlexBetween from '../shared/utils/FlexBetween'
 import Copyright from '../Copyright'
 
@@ -16,14 +15,12 @@ import Copyright from '../Copyright'
  * --------------- */
 
 const FooterContainer = () => {
-  const { palette } = useTheme()
-  const darkMode = useMediaQuery('(prefers-color-scheme: dark')
   return (
     <FlexBetween component='footer' id='footer-container' style={{
       padding: '4px 8px',
       fontSize: '8px',
-      backgroundColor: darkMode ? palette.background.default : palette.background.paper,
-      color: darkMode ? palette.background.paper : palette.background.default
+      backgroundColor: 'hsl(210, 100%, 4%)',
+      color: 'hsl(210, 0%, 98%)'
     }}>
       <Copyright />
       <span>

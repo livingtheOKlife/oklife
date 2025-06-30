@@ -64,9 +64,13 @@ export const tokens = {
       dark: 'hsl(285, 42%, 38%)'
     }
   },
-  background: {
+  card: {
     light: 'hsl(210, 0%, 98%)',
     dark: 'hsl(210, 100%, 4%)'
+  },
+  background: {
+    light: 'hsl(210, 0%, 93%)',
+    dark: 'hsl(210, 100%, 8%)'
   },
   text: {
     light: 'hsl(210, 0%, 98%)',
@@ -107,6 +111,10 @@ export const lightModeTheme = {
       purple: {
         ...tokens.wheel.purple
       },
+    },
+    card: {
+      light: tokens.card.light,
+      dark: tokens.card.dark
     },
     grey: {
       ...tokens.grey,
@@ -187,6 +195,10 @@ export const darkModeTheme = {
       purple: {
         ...tokens.wheel.purple
       },
+    },
+    card: {
+      light: tokens.card.dark,
+      dark: tokens.card.light
     },
     grey: {
       ...tokens.grey,
