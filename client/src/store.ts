@@ -22,4 +22,6 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)
 })
 
+export type AuthStateType = ReturnType<typeof store.getState>
+
 export default store

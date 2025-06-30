@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAppContext } from '../hooks/useAppContext'
 import { TbMessage, TbSearch, TbUser } from 'react-icons/tb'
 import FlexBetween from './shared/utils/FlexBetween'
 import FlexCenter from './shared/utils/FlexCenter'
 import Logo from './Logo'
 import MainNavItem from './MainNavItem'
+import { useSelector } from 'react-redux'
+import type { AuthStateType } from '../store'
 
 /**------------------------------ main navigation bar
  * 
@@ -24,6 +26,9 @@ import MainNavItem from './MainNavItem'
  * --------------- */
 
 const MainNav = () => {
+  const navigate = useNavigate()
+  // ------------------------------ auth
+  const { userInfo } = useSelector((state:AuthStateType) => state.auth)
   // ------------------------------ context
   const {
     state,
@@ -66,7 +71,9 @@ const MainNav = () => {
   }
   // ------------------------------ menu button
   const menuButton = () => {
-    if (state.menu === false) {
+    if (!userInfo) {
+      navigate('/create-account')
+    } else if (state.menu === false) {
       setMenuActive()
     } else {
       setMenuInactive()
