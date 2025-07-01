@@ -7,6 +7,7 @@ import { apiSlice } from './apiSlice'
  * @description authentication mutation builder
  * @method POST /api/auth/create-account
  * @method POST /api/auth/sign-out
+ * @method POST /api/auth/sign-in
  *
  * --------------- */
 
@@ -19,6 +20,13 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    signIn: builder.mutation({
+      query: (data) => ({
+        url: '/apli/auth/sign-in',
+        method: 'POST',
+        body: data
+      })
+    }),
     signOut: builder.mutation({
       query: () => ({
         url: '/api/auth/sign-out',
@@ -30,5 +38,6 @@ export const authApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useCreateAccountMutation,
+  useSignInMutation,
   useSignOutMutation
 } = authApiSlice
