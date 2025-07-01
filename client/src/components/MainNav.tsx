@@ -72,7 +72,7 @@ const MainNav = () => {
   // ------------------------------ menu button
   const menuButton = () => {
     if (!userInfo) {
-      navigate('/create-account')
+      navigate('/sign-in')
     } else if (state.menu === false) {
       setMenuActive()
     } else {
