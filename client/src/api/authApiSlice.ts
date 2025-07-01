@@ -6,6 +6,7 @@ import { apiSlice } from './apiSlice'
  * @requires apiSlice
  * @description authentication mutation builder
  * @method POST /api/auth/create-account
+ * @method POST /api/auth/sign-out
  *
  * --------------- */
 
@@ -17,10 +18,17 @@ export const authApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: data,
       }),
+    }),
+    signOut: builder.mutation({
+      query: () => ({
+        url: '/api/auth/sign-out',
+        method: 'POST'
+      })
     })
   })
 })
 
 export const {
-  useCreateAccountMutation
+  useCreateAccountMutation,
+  useSignOutMutation
 } = authApiSlice
