@@ -15,10 +15,10 @@ type Type = {
  * 
  * --------------- */
 
-const FlexBetween = styled(Box)<Type> ({
+const FlexCenter = styled(Box)<Type> ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center'
 })
 
-export default FlexBetween
+export default FlexCenter
