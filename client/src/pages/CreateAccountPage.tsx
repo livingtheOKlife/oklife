@@ -135,7 +135,7 @@ const CreateAccountPage = () => {
           }
         </FormControl>
         {
-          isLoading ? <Loading />
+          isLoading ? <Loading type='card' />
           : <FormButton>
               <TbSignature fontSize='1.35rem' />
               Sign up

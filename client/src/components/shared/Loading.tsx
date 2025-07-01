@@ -1,6 +1,10 @@
 import { useTheme } from '@mui/material'
 
-const Loading = () => {
+type Type = {
+  type: string
+}
+
+const Loading = ({type}:Type) => {
   const { palette } = useTheme()
   return (
     <div style={{ 
@@ -16,7 +20,7 @@ const Loading = () => {
         height: '2.3rem',
         width: '2.3rem',
         borderRadius: '50%',
-        backgroundImage: `conic-gradient(${palette.primary.main} 33%, ${palette.card.light} 66% 100%)`,
+        backgroundImage: `conic-gradient(${palette.primary.main} 33%, ${type === 'card' ? palette.card.light : palette.background.default} 66% 100%)`,
         animation: 'spinner 0.96s infinite linear'
       }}>
         <div style={{
@@ -32,7 +36,7 @@ const Loading = () => {
             height: 'calc(100% - 12px)',
             width: 'calc(100% - 12px)',
             borderRadius: '50%',
-            backgroundColor: palette.card.light
+            backgroundColor: type === 'card' ? palette.card.light : palette.background.default
           }}></div>
       </div>
      </div>
