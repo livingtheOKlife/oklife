@@ -8,6 +8,7 @@ import App from './App.tsx'
 import './index.css'
 import HomePage from './pages/HomePage.tsx'
 import CreateAccountPage from './pages/CreateAccountPage.tsx'
+import SignInPage from './pages/SignInPage.tsx'
 import PageNotFoundPage from './pages/PageNotFoundPage.tsx'
 
 /**------------------------------ browser router
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<App />}>
       <Route index path='/' element={<HomePage />} />
       <Route path='/create-account' element={<CreateAccountPage />} />
+      <Route path='/sign-in' element={<SignInPage />} />
       <Route path='/page-not-found' element={<PageNotFoundPage />} />
       <Route path='/*' element={<Navigate to="/page-not-found" replace />} />
     </Route>
