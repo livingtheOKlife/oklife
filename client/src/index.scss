@@ -12,16 +12,29 @@
   
 }
 
-button:hover {
+input, input::placeholder {
 
-  scale: 1.02;
-  transition: all 0.16s ease-in-out;
-  line-height: 1;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.85rem;
   
-  * {
-    
-    scale: 1.02;
-    transition: all 0.16s ease-in-out;
+}
+
+input {
+  
+  width: 100%;
+  border: 1px solid rgb(0, 0, 0, 0.08);
+  border-radius: 3px;
+  padding: 0.6rem 0.75rem;
+  outline: none;
+  background-color: white;
+
+}
+
+.btn-input {
+
+  button {
+
+    background-color: white;
 
   }
 

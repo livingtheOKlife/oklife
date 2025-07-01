@@ -55,6 +55,14 @@ svg {
     width: 0;
   }
 }
+@keyframes spinner {
+  0% {
+    rotate: 0;
+  }
+  100% {
+    rotate: -360deg;
+  }
+}
 .App {
   height: 100dvh;
   max-height: 100dvh;
@@ -62,12 +70,25 @@ svg {
   max-width: 100dvw;
 }
 
-button:hover {
-  scale: 1.02;
-  transition: all 0.16s ease-in-out;
-  line-height: 1;
+input::-moz-placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.85rem;
 }
-button:hover * {
-  scale: 1.02;
-  transition: all 0.16s ease-in-out;
+
+input, input::placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.85rem;
+}
+
+input {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+  padding: 0.6rem 0.75rem;
+  outline: none;
+  background-color: white;
+}
+
+.btn-input button {
+  background-color: white;
 }/*# sourceMappingURL=index.css.map */
