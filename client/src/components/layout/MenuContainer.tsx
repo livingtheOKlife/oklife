@@ -1,6 +1,7 @@
 import { useAppContext } from '../../hooks/useAppContext'
 import AbsoluteContainer from '../shared/utils/AbsoluteContainer'
 import MenuNav from '../MenuNav'
+import { useTheme } from '@mui/material'
 
 /**------------------------------ menu container
  *
@@ -14,11 +15,14 @@ import MenuNav from '../MenuNav'
  * --------------- */
 
 const MenuContainer = () => {
+  const { palette } = useTheme()
   const {
     state,
   } = useAppContext()
   return state.menu === true &&
-    <AbsoluteContainer component='aside' id='menu-container' bottom='18px' padding='0.5rem 1rem 1.5rem 1rem'>
+    <AbsoluteContainer component='aside' id='menu-container' bottom='18px' padding='0.5rem 1rem 1.5rem 1rem' style={{
+      backgroundColor: palette.background.default
+    }}>
       <MenuNav />
     </AbsoluteContainer>
 }
