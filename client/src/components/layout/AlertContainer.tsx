@@ -44,7 +44,7 @@ const AlertContainer = () => {
               color: palette.wheel.red.main
             }} />
         }
-        <span style={{ margin: '0 0.25rem' }}>{state.alert !== true && state.alert.message}</span>
+        <span style={{ margin: '0 0.25rem', fontSize: '12px', textAlign: 'center' }}>{state.alert !== true && state.alert.message}</span>
         <CloseAlertButton />
         <AlertTimer type={state.alert !== true && state.alert.type} />
       </Card>
