@@ -16,7 +16,7 @@ import generateToken from '../utils/generateToken.util.js'
  *
  * --------------- */
 
-const createAccount = async (req, res) => {
+export const createAccount = async (req, res) => {
   const { username, email, password } = req.body
   try {
     if (!username || !email || !password) {
@@ -64,4 +64,28 @@ const createAccount = async (req, res) => {
   }
 }
 
-export { createAccount }
+/**------------------------------ sign out endpoint
+ *
+ * @name signOut
+ * @function
+ * @async
+ * @method POST /api/auth/sign-out
+ * @access Public
+ * @description endpoint function for signing out
+ *
+ * --------------- */
+
+export const signOut = async (req, res) => {
+  try {
+    res.cookie('jwt', '', {
+      httpOnly: true,
+      expires: new Date(0),
+    })
+    res
+      .status(200)
+      .json({ success: true, message: 'User logged out successfully' })
+  } catch (error) {
+    res.status(500)
+    throw new Error(error)
+  }
+}
