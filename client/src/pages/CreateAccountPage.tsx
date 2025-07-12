@@ -78,7 +78,7 @@ const CreateAccountPage = () => {
         }).unwrap()
         dispatch(setCredentials({...res}))
         setAlertActive(`Welcome, ${getValues('username')}!`, 'success')
-        navigate('/verify')
+        navigate('/verify-account')
       }
     } catch (error:unknown) {
       if (error) {
