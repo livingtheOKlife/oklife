@@ -8,6 +8,7 @@ import { apiSlice } from './apiSlice'
  * @method POST /api/auth/create-account
  * @method POST /api/auth/sign-out
  * @method POST /api/auth/sign-in
+ * @method POST /api/auth/verify-account
  *
  * --------------- */
 
@@ -32,6 +33,13 @@ export const authApiSlice = apiSlice.injectEndpoints({
         url: '/api/auth/sign-out',
         method: 'POST'
       })
+    }),
+    verifyAccount: builder.mutation({
+      query: (data) => ({
+        url: `/api/auth/verify-account`,
+        method: 'POST',
+        body: data,
+      }),
     })
   })
 })
