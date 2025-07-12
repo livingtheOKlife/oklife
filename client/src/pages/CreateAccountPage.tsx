@@ -25,7 +25,7 @@ import Loading from '../components/shared/Loading'
  * @name CreateAccountPage
  * @function
  * @route /create-account
- * @returns main container component for the sign in page
+ * @returns main container component for the create account page
  *
  * --------------- */
 
