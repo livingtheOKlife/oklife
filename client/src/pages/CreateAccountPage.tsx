@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Divider, FormLabel, useTheme } from '@mui/material'
 import { TbSignature } from 'react-icons/tb'
 import { useAppContext } from '../hooks/useAppContext'
-import { authSchema, type AuthSchemaType } from '../library/authSchema'
+import { createAccountSchema, type CreateAccountSchemaType } from '../library/createAccountSchema'
 import type { AuthStateType } from '../store'
 import { useCreateAccountMutation } from '../api/authApiSlice'
 import { setCredentials } from '../api/authSlice'
@@ -53,8 +53,8 @@ const CreateAccountPage = () => {
     formState: { errors },
     getValues,
     handleSubmit
-  } = useForm<AuthSchemaType>({
-    resolver: zodResolver(authSchema),
+  } = useForm<CreateAccountSchemaType>({
+    resolver: zodResolver(createAccountSchema),
     defaultValues: {
       username: '',
       email: '',
