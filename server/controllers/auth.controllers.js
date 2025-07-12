@@ -130,3 +130,48 @@ export const signIn = async (req, res) => {
     throw new Error(error)
   }
 }
+
+/**------------------------------ verify account endpoint
+ *
+ * @name verifyAccount
+ * @function
+ * @async
+ * @method POST /api/auth/verify-account
+ * @access Public
+ * @requires User model
+ * @requires emailTransporter
+ * @description endpoint function for email verification
+ *
+ * --------------- */
+
+export const verifyAccount = async (req, res) => {
+  const { email, token } = req.body
+  try {
+    const user = await User.findOne({ verificationToken: token })
+    if (!user || user.email !== email) {
+      res.status(400)
+      throw new Error('Invalid or expired verification code')
+    } else {
+      ;(user.isVerified = true), (user.verificationToken = undefined)
+      user.verificationExpiry = undefined
+      await user.save()
+      await emailTransporter.sendMail({
+        from: process.env.EMAIL_ADDRESS,
+        to: email,
+        subject: `Welcome, ${user.username}, to the OKlife!`,
+        html: `<span>Thank you for joining us!</span>`,
+      })
+      res.status(200).json({
+        success: true,
+        message: 'Email successfully verified',
+        user: {
+          ...user._doc,
+          password: undefined,
+        },
+      })
+    }
+  } catch (error) {
+    res.status(400)
+    throw new Error(error)
+  }
+}
