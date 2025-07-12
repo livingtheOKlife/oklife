@@ -12,7 +12,7 @@ const FormButton = ({children}:Props) => {
       display: 'flex',
       alignItems: 'center',
       gap: '0.25rem',
-      padding: '0.5rem',
+      padding: '0.75rem',
       margin: '1rem 0',
       fontSize: '0.85rem',
       lineHeight: 1,
