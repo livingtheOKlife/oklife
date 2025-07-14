@@ -152,7 +152,8 @@ export const verifyAccount = async (req, res) => {
       res.status(400)
       throw new Error('Invalid or expired verification code')
     } else {
-      ;(user.isVerified = true), (user.verificationToken = undefined)
+      user.isVerified = true
+      user.verificationToken = undefined
       user.verificationExpiry = undefined
       await user.save()
       await emailTransporter.sendMail({
@@ -172,6 +173,55 @@ export const verifyAccount = async (req, res) => {
     }
   } catch (error) {
     res.status(400)
+    throw new Error(error)
+  }
+}
+
+/**------------------------------ resend verification email endpoint
+ *
+ * @name resendVerificationEmail
+ * @function
+ * @async
+ * @method POST /api/auth/resend-verification-email
+ * @access Public
+ * @requires User model
+ * @requires emailTransporter
+ * @description endpoint function for resending verification email
+ *
+ * --------------- */
+
+export const resendVerificationEmail = async (req, res) => {
+  const { email } = req.body
+  try {
+    const user = await User.findOne({ email })
+    if (!user) {
+      res.status(404)
+      throw new Error('User not found')
+    } else if (user.isVerified) {
+      res.status(400)
+      throw new Error('User is already verified')
+    } else {
+      const token = Math.floor(100000 + Math.random() * 900000).toString()
+      user.verificationToken = token
+      user.verificationExpiry = Date.now() + 24 * 60 * 60 * 1000
+      await user.save()
+      await emailTransporter.sendMail({
+        from: process.env.EMAIL_ADDRESS,
+        to: email,
+        subject: 'Verify your email',
+        html: `<span>Your verification token is ${token}</span>`,
+      })
+      res.status(200).json({
+        success: true,
+        message: 'Verification code sent successfully',
+        user: {
+          ...user._doc,
+          password: undefined,
+        },
+      })
+    }
+  } catch (error) {
+    res.status(500)
     throw new Error(error)
   }
 }
