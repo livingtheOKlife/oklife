@@ -1,3 +1,4 @@
+import crypto from 'crypto'
 import emailTransporter from '../middleware/email.middleware.js'
 import User from '../models/user.model.js'
 import generateToken from '../utils/generateToken.util.js'
@@ -218,6 +219,62 @@ export const resendVerificationEmail = async (req, res) => {
           ...user._doc,
           password: undefined,
         },
+      })
+    }
+  } catch (error) {
+    res.status(500)
+    throw new Error(error)
+  }
+}
+
+/**------------------------------ forgotten password endpoint
+ *
+ * @name forgotPassword
+ * @function
+ * @async
+ * @method POST /api/auth/forgot-password
+ * @access Public
+ * @requires User model
+ * @requires crypto
+ * @requires emailTransporter
+ * @description endpoint function for forgotten password
+ *
+ * request body: email
+ * find user with same email
+ * check user not found
+ *  => 404: user not found
+ * set reset token and expiry + 1
+ * set user reset token and expiry
+ * save user
+ * send forgotten password email
+ * 200 : 'Password reset link sent to your email
+ * error 500 : error
+ *
+ * --------------- */
+
+export const forgotPassword = async (req, res) => {
+  const { email } = req.body
+  try {
+    const user = await User.findOne({ email })
+    if (!user) {
+      res.status(404)
+      throw new Error('User not found')
+    } else {
+      const resetToken = crypto.randomBytes(20).toString('hex')
+      user.passwordResetToken = resetToken
+      user.passwordResetExpiry = Date.now() + 1 * 60 * 60 * 1000
+      await user.save()
+      await emailTransporter.sendMail({
+        from: process.env.EMAIL_ADDRESS,
+        to: email,
+        subject: 'Reset your password',
+        html: `
+          <a href="${process.env.CLIENT_URL}reset-password/${resetToken}">Reset your password</a>
+        `,
+      })
+      res.status(200).json({
+        success: true,
+        message: 'A password reset link has been sent to you',
       })
     }
   } catch (error) {
