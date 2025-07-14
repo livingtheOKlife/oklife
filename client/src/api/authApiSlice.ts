@@ -9,6 +9,7 @@ import { apiSlice } from './apiSlice'
  * @method POST /api/auth/sign-out
  * @method POST /api/auth/sign-in
  * @method POST /api/auth/verify-account
+ * @method POST /api/auth/resend-verification-email
  *
  * --------------- */
 
@@ -40,6 +41,13 @@ export const authApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: data,
       }),
+    }),
+    resendVerification: builder.mutation({
+      query: (data) => ({
+        url: '/api/auth/resend-verification-email',
+        method: 'POST',
+        body: data
+      })
     })
   })
 })
@@ -48,5 +56,6 @@ export const {
   useCreateAccountMutation,
   useSignInMutation,
   useSignOutMutation,
-  useVerifyAccountMutation
+  useVerifyAccountMutation,
+  useResendVerificationMutation
 } = authApiSlice
