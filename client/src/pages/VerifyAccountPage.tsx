@@ -5,13 +5,14 @@ import FormHeader from '../components/shared/forms/FormHeader'
 import FormWidget from '../components/shared/forms/FormWidget'
 import FormButton from '../components/shared/forms/FormButton'
 import { TbShieldCheckFilled } from 'react-icons/tb'
-import { useTheme } from '@mui/material'
+import { Divider, useTheme } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import type { AuthStateType } from '../store'
 import { useAppContext } from '../hooks/useAppContext'
 import { setCredentials } from '../api/authSlice'
-import { useVerifyAccountMutation } from '../api/authApiSlice'
+import { useResendVerificationMutation, useVerifyAccountMutation } from '../api/authApiSlice'
+import FormFooter from '../components/shared/forms/FormFooter'
 
 /**------------------------------ verify account page
  *
@@ -67,6 +68,21 @@ const VerifyAccountPage = () => {
 			inputRefs.current[i - 1].focus()
 		}
 	}
+  // ------------------------------ resend verification mutation
+  const [ resendVerification ] = useResendVerificationMutation()
+  // ------------------------------ on submit
+  const onResend = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await resendVerification({ email: userInfo.user.email }).unwrap()
+      dispatch(setCredentials({...res}))
+      setAlertActive('A new code has been sent to you', 'success')
+    } catch (error:unknown) {
+      if (error) {
+        setAlertActive(error.data.message, 'error')
+      }
+    }
+  }
   // ------------------------------ account verification mutation
   const [ verifyAccount, { isLoading } ] = useVerifyAccountMutation()
   // ------------------------------ on submit
@@ -118,6 +134,11 @@ const VerifyAccountPage = () => {
           Verify account
         </FormButton>
         <Link to='/' style={{ alignSelf: 'center', marginBottom: '0.25rem', color: palette.primary.main }}>Skip for now</Link>
+        <Divider>or</Divider>
+        <FormFooter>
+          <span>You didn't receive an email from us?</span>
+          <Link to='/verify-account' style={{ color: palette.primary.main }} onClick={onResend}>Resend code</Link>
+        </FormFooter>
       </FormWidget>
     </MainContainer>
   )
