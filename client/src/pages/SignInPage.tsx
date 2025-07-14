@@ -106,7 +106,7 @@ const SignInPage = () => {
             errors.password && <InputError error={errors.password.message} />
           }
         </FormControl>
-        <Link to='/forgot-password' style={{ alignSelf: 'center', marginTop: '0.5rem', color: palette.primary.main }}>Forgotten password?</Link>
+        <Link to='/forgot-password' style={{ alignSelf: 'center', marginTop: '0.5rem', color: palette.primary.main }}>Forgot password</Link>
         {
           isLoading ? <Loading type='card' />
           : <FormButton>
