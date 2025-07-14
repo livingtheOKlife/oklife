@@ -239,17 +239,6 @@ export const resendVerificationEmail = async (req, res) => {
  * @requires emailTransporter
  * @description endpoint function for forgotten password
  *
- * request body: email
- * find user with same email
- * check user not found
- *  => 404: user not found
- * set reset token and expiry + 1
- * set user reset token and expiry
- * save user
- * send forgotten password email
- * 200 : 'Password reset link sent to your email
- * error 500 : error
- *
  * --------------- */
 
 export const forgotPassword = async (req, res) => {
@@ -269,7 +258,7 @@ export const forgotPassword = async (req, res) => {
         to: email,
         subject: 'Reset your password',
         html: `
-          <a href="${process.env.CLIENT_URL}reset-password/${resetToken}">Reset your password</a>
+          <a href="${process.env.CLIENT_URL}/reset-password/${resetToken}">Reset your password</a>
         `,
       })
       res.status(200).json({
@@ -279,6 +268,51 @@ export const forgotPassword = async (req, res) => {
     }
   } catch (error) {
     res.status(500)
+    throw new Error(error)
+  }
+}
+
+/**------------------------------ reset password endpoint
+ *
+ * @name resetPassword
+ * @function
+ * @async
+ * @method POST /api/auth/reset-password
+ * @access Public
+ * @requires User model
+ * @requires generateToken
+ * @requires emailTransporter
+ * @description endpoint function for resetting password
+ *
+ * --------------- */
+
+export const resetPassword = async (req, res) => {
+  const { token } = req.params
+  const { password } = req.body
+  try {
+    const user = await User.findOne({ passwordResetToken: token })
+    if (!user || user.passwordResetToken === undefined) {
+      res.status(400)
+      throw new Error('Invalid user data')
+    } else {
+      user.password = password
+      user.passwordResetToken = undefined
+      user.passwordResetExpiry = undefined
+      await user.save()
+      generateToken(res, user._id)
+      await emailTransporter.sendMail({
+        from: process.env.EMAIL_ADDRESS,
+        to: user.email,
+        subject: 'Password reset successful',
+        html: `<span>Your password was reset successfully</span>`,
+      })
+      res.status(200).json({
+        success: true,
+        message: 'Password reset successfully',
+      })
+    }
+  } catch (error) {
+    res.status(400)
     throw new Error(error)
   }
 }
