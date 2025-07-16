@@ -280,7 +280,6 @@ export const forgotPassword = async (req, res) => {
  * @method POST /api/auth/reset-password
  * @access Public
  * @requires User model
- * @requires generateToken
  * @requires emailTransporter
  * @description endpoint function for resetting password
  *
@@ -299,7 +298,6 @@ export const resetPassword = async (req, res) => {
       user.passwordResetToken = undefined
       user.passwordResetExpiry = undefined
       await user.save()
-      generateToken(res, user._id)
       await emailTransporter.sendMail({
         from: process.env.EMAIL_ADDRESS,
         to: user.email,
