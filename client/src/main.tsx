@@ -12,6 +12,7 @@ import SignInPage from './pages/SignInPage.tsx'
 import VerifyAccountPage from './pages/VerifyAccountPage.tsx'
 import ForgotPasswordPage from './pages/ForgotPasswordPage.tsx'
 import PageNotFoundPage from './pages/PageNotFoundPage.tsx'
+import ResetPasswordPage from './pages/ResetPasswordPage.tsx'
 
 /**------------------------------ browser router
  *
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
       <Route path='/sign-in' element={<SignInPage />} />
       <Route path='/verify-account' element={<VerifyAccountPage />} />
       <Route path='/forgot-password' element={<ForgotPasswordPage />} />
+      <Route path='/reset-password/:token' element={<ResetPasswordPage />} />
       <Route path='/page-not-found' element={<PageNotFoundPage />} />
       <Route path='/*' element={<Navigate to="/page-not-found" replace />} />
     </Route>
