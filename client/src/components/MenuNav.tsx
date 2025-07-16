@@ -51,6 +51,16 @@ const MenuNav = () => {
   return (
     <FlexBetween component='nav' id='menu-nav' flexDirection='column' height='100%'>
       <ul style={{ height: '100%', width: '100%' }}>
+        <MenuNavItem sx={{
+          '&:hover': {
+            border: `1px solid ${palette.primary.main}`,
+            backgroundColor: palette.primary.main,
+            color: darkMode ? palette.background.paper : palette.background.default,
+          }
+        }} onClick={() => {
+          navigate('/update-password')
+          setMenuInactive()
+        }}>Update Password</MenuNavItem>
         {
           !user.isVerified && <MenuNavItem sx={{
             '&:hover': {
