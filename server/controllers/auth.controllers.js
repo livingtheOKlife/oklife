@@ -314,3 +314,48 @@ export const resetPassword = async (req, res) => {
     throw new Error(error)
   }
 }
+
+/**------------------------------ update password endpoint
+ *
+ * @name updatePassword
+ * @function
+ * @async
+ * @method POST /api/auth/update-password
+ * @access Public
+ * @requires User model
+ * @requires generateToken
+ * @description endpoint function for updating passwords
+ *
+ * --------------- */
+
+export const updatePassword = async (req, res) => {
+  const { userId, currentPassword, newPassword } = req.body
+  try {
+    const user = await User.findById(userId)
+    if (!user) {
+      res.status(404)
+      throw new Error('User not found')
+    } else if (!(await user.matchPassword(currentPassword))) {
+      res.status(409)
+      throw new Error('Invalid user data')
+    } else if (await user.matchPassword(newPassword)) {
+      res.status(400)
+      throw new Error('Your password cannot match your old password')
+    } else {
+      user.password = newPassword
+      await user.save()
+      generateToken(res, user._id)
+      res.status(200).json({
+        success: true,
+        message: 'Password updated successfully',
+        user: {
+          ...user._doc,
+          password: undefined,
+        },
+      })
+    }
+  } catch (error) {
+    res.status(400)
+    throw new Error(error)
+  }
+}

@@ -6,6 +6,7 @@ import {
   resetPassword,
   signIn,
   signOut,
+  updatePassword,
   verifyAccount,
 } from '../controllers/auth.controllers.js'
 
@@ -18,5 +19,6 @@ router.post('/verify-account', verifyAccount)
 router.post('/resend-verification-email', resendVerificationEmail)
 router.post('/forgot-password', forgotPassword)
 router.post('/reset-password/:token', resetPassword)
+router.post('/update-password', updatePassword)
 
 export default router
