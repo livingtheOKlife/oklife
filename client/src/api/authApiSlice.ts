@@ -11,6 +11,7 @@ import { apiSlice } from './apiSlice'
  * @method POST /api/auth/verify-account
  * @method POST /api/auth/resend-verification-email
  * @method POST /api/auth/forgot-password
+ * @method POST /api/auth/reset-password/:token
  *
  * --------------- */
 
@@ -56,6 +57,13 @@ export const authApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: data
       })
+    }),
+    resetPassword: builder.mutation({
+      query: (data) => ({
+        url: `/api/auth/reset-password/${data.token}`,
+        method: 'POST',
+        body: data
+      })
     })
   })
 })
@@ -66,5 +74,6 @@ export const {
   useSignOutMutation,
   useVerifyAccountMutation,
   useResendVerificationMutation,
-  useForgotPasswordMutation
+  useForgotPasswordMutation,
+  useResetPasswordMutation
 } = authApiSlice
